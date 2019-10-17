@@ -3,7 +3,7 @@
 let apiUrl
 const apiUrls = {
   production: '<replace-with-heroku-url>',
-  development: 'http://localhost:4741'
+  development: 'https://damp-refuge-43009.herokuapp.com/smoothies'
 }
 
 if (window.location.hostname === 'localhost') {
