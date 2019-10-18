@@ -1,4 +1,5 @@
 'use strict'
+const events = require('./events')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -7,5 +8,8 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
+  $('#change-pw').on('submit', events.onChangePw)
+  $('#sign-out').on('submit', events.onSignOut)
 })

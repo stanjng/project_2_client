@@ -1,0 +1,89 @@
+'use strict'
+const store = require('./store.js')
+
+const config = require('./config')
+// const store = require('./store.js')
+
+const signUp = function (formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/sign-up/',
+    data: formData
+  })
+}
+
+const signIn = function (formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/sign-in/',
+    data: formData
+  })
+}
+
+const changePw = function (formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/change-password/',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
+const signOut = function () {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// const create = function () {
+//   return $.ajax({
+//     method: 'POST',
+//     url: config.apiUrl + '/games/',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: ``
+//   })
+// }
+//
+// const update = function (index, value, gameOver) {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: config.apiUrl + '/games/' + store.game.id,
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//       'game': {
+//         'cells': {
+//           'index': index,
+//           'value': value
+//         },
+//         'over': gameOver // store.game.over
+//       }
+//     }
+//   })
+// }
+//
+// const retrieve = function () {
+//   return $.ajax({
+//     method: 'GET',
+//     url: config.apiUrl + `/games?over=true`,
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
+module.exports = {
+  signUp,
+  signIn,
+  signOut,
+  changePw
+}

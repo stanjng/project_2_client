@@ -1,1 +1,99 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+$primary: #ff404c;
+$secondary: #ffa5ab;
+$tertiary: #c0000d;
+$body-bg-color: #000000;
+$font-color: $black; // scale-color(tertiary, $lightness: 95%);
+
+a {
+  background-color: $tertiary;
+  color: $white;
+  text-decoration: none;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, $white, $secondary);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  line-height: 1.4;
+  padding-left: 1rem;
+}
+
+.main-content {
+  align-items: center;
+  background-color: $primary;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+  color: $font-color;
+  display: flex;
+  height: 84vh;
+  justify-content: center;
+  margin: 0;
+}
+
+.borders {
+  height: 5vh;
+  opacity: 0;
+}
+
+#auth-msgs {
+  align-items: center;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 27px 0 rgba(255, 255, 255, 0.2);
+  color: $black;
+  display: flex;
+  height: 8vh;
+  justify-content: center;
+  width: 50vw;
+}
+
+.home-image {
+  // background: url(~/Desktop/sei/projects/project_2/project_2_client/assets/media/smoothie-1.jpg);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .7), 0 6px 30px 0 rgba(255, 255, 255, .2);
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+}
+
+.main {
+  background-color: $primary;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+  color: $font-color;
+  height: 90vh;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar {
+  background-color: $primary;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+  color: $font-color;
+  display: flex;
+  height: 6.7vh;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.nav-link {
+  border-radius: 0.27rem;
+  display: block;
+  padding: 0.5rem;
+}
+
+.nav-link.disabled {
+  color: $black;
+}
+
+.nav-pills .nav-link.active {
+  background-color: $white;
+  color: $primary;
+}
