@@ -40,9 +40,13 @@
             <div class="modal fade" id="login-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="auth-modal-title">Login or Sign Up Here:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                   <div class="modal-body">
-                    <div class="col-12" id="auth-msgs">Please login or sign up.</div>
-                    <br>
                     <form id='sign-in'>
                       Sign In<br>
                       <input type="email" class="sign-in-toggle" name="credentials[email]" placeholder="Enter Email">
@@ -71,9 +75,7 @@
 
                     <form id="sign-out" style="display: none">
                       <button class="btn btn-primary btn-sm sign-out-toggle">Sign Out</button>
-                    </form><br>
-
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -95,23 +97,21 @@
                 </div>
                 <div class="modal-body overflow-auto" id="smoothie-modal-text">
                   <form id='create-smoothy'>
-                    Name<br>
+                    Name
                     <input type="text" name="smoothy[name]" placeholder="Enter name (e.g. Stan's Berry Blast, Live Your D*** Life, etc.)"><br>
-                    Base<br>
+                    Base
                     <input type="text" name="smoothy[base]" placeholder="Enter base (e.g. Soy milk, Whole milk, etc.)"><br>
-                    Fruits<br>
+                    Fruits
                     <input type="text" name="smoothy[fruit]" placeholder="Enter fruits (e.g. Blueberries, Strawberries, etc.)"><br>
-                    Veggies<br>
+                    Veggies
                     <input type="text" name="smoothy[vegetable]" placeholder="Enter vegetables (e.g. Kale, Spinach, etc.)"><br>
-                    Boosters<br>
+                    Boosters
                     <input type="text" name="smoothy[booster]" placeholder="Enter boosters (e.g. Protein, Spirulina, etc.)"><br>
-                    Thickeners<br>
+                    Thickeners
                     <input type="text" name="smoothy[thickener]" placeholder="Enter thickeners (e.g. Peanut butter, Chia seeds, etc.)">
                     <br>
-                    <button class="btn btn-primary btn-sm">Save Smoothie</button>
+                    <button class="btn btn-primary btn-sm save-smoothie-btn">Save Smoothie</button>
                   </form>
-                  <hr>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -132,15 +132,10 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body overflow-auto">
-                  <!-- <form id='view-one-smoothie'>
-                    <input type="number" min="0" step="1" name="smoothyId" placeholder="Smoothie ID">
-                    <button class="btn btn-primary btn-sm">View Smoothie</button>
-                    <hr>
-                  </form> -->
+                <div class="modal-body overflow-auto show-smoothies-body">
                   <p>
                     <form id='view-all-smoothies'>
-                      <button class="btn btn-primary btn-sm">View All Smoothies</button>
+                      <button class="btn btn-primary btn-sm view-all-smoothies-btn">View All Smoothies</button>
                     </form>
                   </p>
                   <div class="view-smoothies-text">
@@ -162,7 +157,7 @@
           <!-- View/Delete One Modal  -->
           <div class="modal fade" id="example-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
-              <div class="modal-content">
+              <div class="modal-content select-smoothies-body">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLongTitle">Select a Smoothie:</h5>
                   <button type="button" class="close select-a-smoothy" data-dismiss="modal" aria-label="Close">
@@ -171,13 +166,13 @@
                 </div>
                 <div class="modal-body overflow-auto">
                   <div id="example-div">
-                    <form id="example-form-submit">
+                    <form class="view-smoothy">
                       <div class="form-group">
-                        <label for="example-div-display">Select smoothie from the list::</label>
+                        <label for="example-div-display">Select smoothie from the list:</label>
                         <select multiple class="form-control" id="example-div-display">
                         </select>
                       </div>
-                      <button class="btn btn-primary btn-sm">View</button>
+                      <button class="btn btn-primary btn-sm view-single-btn">View</button>
                       <hr>
                     </form>
                     <form id="delete-smoothy">
@@ -186,9 +181,12 @@
                         <select multiple class="form-control" id="delete-smoothie">
                         </select>
                       </div>
-                      <button class="btn btn-primary btn-sm">Delete</button>
+                      <button class="btn btn-primary btn-sm delete-single-btn">Delete</button>
                       <hr>
                     </form>
+                    <div class="view-smoothies-text">
+                      <h3>View your smoothie below:</h3>
+                    </div>
                     <div class="show-smoothies overflow-auto">
                     </div>
                   </div>
@@ -212,7 +210,7 @@
                   <form id="update-smoothy">
                     <div class="form-group">
                       <label for="base-text" class="col-form-label">Make changes below:</label>
-                      <h4>Update smoothie</h4>
+                      <h4>Update Smoothie</h4>
                       <input type="text" class="form-control smoothy-id" id="id-text" disabled>
                       <input type="text" id="updated-name" name="smoothy[name]" placeholder="Updated name">
                       <input type="text" id="updated-base" name="smoothy[base]" placeholder="Updated base">
@@ -220,7 +218,7 @@
                       <input type="text" id="updated-vegetable" name="smoothy[vegetable]" placeholder="Updated vegetables">
                       <input type="text" id="updated-booster" name="smoothy[booster]" placeholder="Updated boosters">
                       <input type="text" id="updated-thickener" name="smoothy[thickener]" placeholder="Updated thickeners">
-                      <button class="btn btn-primary btn-sm">Edit This Smoothie</button>
+                      <button class="btn btn-primary btn-sm update-smoothie-btn">Change this Smoothie</button>
                   </form>
                 </div>
               </div>
@@ -238,7 +236,7 @@
 
     <!-- <div class="col-12 main-content"> -->
     <div class="col-12" id="home-image">
-      <img src="https://github.com/stanjng/project_2_client/blob/master/assets/media/smoothie-2.jpg?raw=true" width="100%" />
+      <img src="./public/smoothie-2.jpg" width="100%" />
     </div>
     <!-- </div> -->
 

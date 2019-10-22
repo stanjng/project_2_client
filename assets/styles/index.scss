@@ -113,8 +113,16 @@ select {
   color: $black;
 }
 
-.overflow-auto {
+.select-smoothies-body {
+  height: 80vh;
+}
+
+.show-smoothies-body {
   height: 70vh;
+}
+
+.show-smoothies {
+  height: 50vh;
 }
 
 .show-smoothies {
@@ -127,7 +135,7 @@ select {
   text-align: center;
   font-family: 'Lobster', cursive;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 633px) {
   .nav-bar {
     height: fit-content;
     flex-direction: column;

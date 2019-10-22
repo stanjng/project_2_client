@@ -7,7 +7,7 @@ const store = require('./store.js')
 // --- Separater --- AUTHENTICATION INFORMATION ---------//
 
 // Sign Up
-const onSignUp = function(event) {
+const onSignUp = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -22,7 +22,7 @@ const onSignUp = function(event) {
 }
 
 // Sign In
-const onSignIn = function(event) {
+const onSignIn = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -37,7 +37,7 @@ const onSignIn = function(event) {
 }
 
 // Change Pw
-const onChangePw = function(event) {
+const onChangePw = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -52,7 +52,7 @@ const onChangePw = function(event) {
 }
 
 // Sign Out
-const onSignOut = function(event) {
+const onSignOut = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   api.signOut()
@@ -63,7 +63,7 @@ const onSignOut = function(event) {
 // --- Separater --- CRUD CODE ---------//
 
 // View all smoothies
-const onViewAll = function() {
+const onViewAll = function () {
   event.preventDefault()
   // Stops page from refreshing
   api.viewAll()
@@ -72,7 +72,7 @@ const onViewAll = function() {
 }
 
 // View one smoothie by id
-const onViewOne = function(event) {
+const onViewOne = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -87,7 +87,7 @@ const onViewOne = function(event) {
 }
 
 // Create new smoothy
-const onCreate = function(event) {
+const onCreate = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -101,7 +101,7 @@ const onCreate = function(event) {
     .catch(ui.onCreateFailure)
 }
 
-const onUpdate = function(event) {
+const onUpdate = function (event) {
   console.log('testing if this works')
   event.preventDefault()
   // Stops page from refreshing
@@ -119,19 +119,18 @@ const onUpdate = function(event) {
     .catch(ui.onUpdateFailure)
 }
 
-const onDelete = function(event) {
+const onDelete = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const smoothyId = $('select option:selected').data('smoothiesid')
   $('select option:selected').remove()
-
   console.log(smoothyId)
   api.destroy(smoothyId)
     .then(ui.onDeleteSuccess)
     .catch(ui.onDeleteFailure)
 }
 
-const changeComp = function(event) {
+const changeComp = function (event) {
   const button = $(event.relatedTarget) // Button that triggered the modal
   const smoothyId = button.data('smoothy-id') // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -141,14 +140,14 @@ const changeComp = function(event) {
   console.log(button.data('smoothy-id'))
 }
 
-const onExample = function() {
+const onShow = function () {
   event.preventDefault()
   // Stops page from refreshing
   api.viewAll()
-    .then(ui.onExampleSuccess)
+    .then(ui.onShowSuccess)
 }
 
-const exEvents = function(event) {
+const onPassId = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const smoothyId = $('select option:selected').data('smoothiesid')
@@ -169,6 +168,6 @@ module.exports = {
   onUpdate,
   onDelete,
   changeComp,
-  onExample,
-  exEvents
+  onShow,
+  onPassId
 }

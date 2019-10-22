@@ -19,8 +19,8 @@ $(() => {
   $('#update-smoothy').on('submit', events.onUpdate)
   $('#delete-smoothy').on('submit', events.onDelete)
   $('#updating-modal').on('show.bs.modal', events.changeComp)
-  $('.view-single-smoothie-div').on('click', events.onExample)
-  $('#example-form-submit').on('submit', events.exEvents)
+  $('.view-single-smoothie-div').on('click', events.onShow)
+  $('#view-smoothy').on('submit', events.onPassId)
   $('.select-a-smoothy').on('click', () => {
     $('.show-smoothies').html(``)
   })

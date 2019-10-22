@@ -4,7 +4,7 @@ const store = require('./store.js')
 const config = require('./config')
 // const store = require('./store.js')
 
-const signUp = function(formData) {
+const signUp = function (formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up/',
@@ -12,7 +12,7 @@ const signUp = function(formData) {
   })
 }
 
-const signIn = function(formData) {
+const signIn = function (formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in/',
@@ -20,7 +20,7 @@ const signIn = function(formData) {
   })
 }
 
-const changePw = function(formData) {
+const changePw = function (formData) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password/',
@@ -31,7 +31,7 @@ const changePw = function(formData) {
   })
 }
 
-const signOut = function() {
+const signOut = function () {
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
@@ -41,7 +41,7 @@ const signOut = function() {
   })
 }
 
-const viewAll = function() {
+const viewAll = function () {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + `/smoothies`,
@@ -51,7 +51,7 @@ const viewAll = function() {
   })
 }
 
-const viewOne = function(smoothieId) {
+const viewOne = function (smoothieId) {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + `/smoothies/` + smoothieId,
@@ -61,7 +61,7 @@ const viewOne = function(smoothieId) {
   })
 }
 
-const createNew = function(formData) {
+const createNew = function (formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/smoothies',
@@ -72,7 +72,7 @@ const createNew = function(formData) {
   })
 }
 
-const update = function(id, name, base, fruit, vegetable, booster, thickener) {
+const update = function (id, name, base, fruit, vegetable, booster, thickener) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + `/smoothies/` + id,
@@ -93,7 +93,7 @@ const update = function(id, name, base, fruit, vegetable, booster, thickener) {
   })
 }
 
-const destroy = function(id) {
+const destroy = function (id) {
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + `/smoothies/` + id,
