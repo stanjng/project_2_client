@@ -87,6 +87,7 @@ const onChangePwFailure = function () {
 // --------------------------------------- SIGN OUT
 const onSignOutSuccess = function () {
   successMessage('Signed out! Please login again.', 'Please login or sign up.')
+  $('form').trigger('reset')
   $('#sign-in').show()
   $('#sign-up').show()
   // Shows sign in & up forms
