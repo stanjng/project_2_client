@@ -13,7 +13,6 @@ curl "https://damp-refuge-43009.herokuapp.com/smoothies" \
       "fruit": "'"${FRUIT}"'",
       "vegetable": "'"${VEGETABLE}"'",
       "thickener": "'"${THICKENER}"'",
-      "description": "'"${DESCRIPTION}"'",
       "user_id": "'"${USER}"'"
     }
   }'

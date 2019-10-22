@@ -16,11 +16,17 @@ body {
   background-image: linear-gradient(to bottom right, $white, $secondary);
 }
 
+button {
+  color: $tertiary;
+  background-color: $secondary;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50vw;
 }
 
 h1 {
@@ -29,20 +35,25 @@ h1 {
   padding-left: 1rem;
 }
 
-.main-content {
-  align-items: center;
-  background-color: $primary;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
-  color: $font-color;
-  display: flex;
-  height: 84vh;
-  justify-content: center;
-  margin: 0;
-}
-
 .borders {
   height: 5vh;
   opacity: 0;
+}
+
+.btn-primary {
+  border: 0;
+  background-color: $tertiary;
+}
+
+.btn-primary:disabled {
+  background-color: $secondary;
+  border: 0;
+}
+
+.btn-primary:hover {
+  color: $tertiary;
+  background-color: $primary;
+  border: 0;
 }
 
 #auth-msgs {
@@ -52,7 +63,7 @@ h1 {
   display: flex;
   height: 8vh;
   justify-content: center;
-  width: 50vw;
+  font-size: 1rem;
 }
 
 .home-image {
@@ -73,27 +84,42 @@ h1 {
   padding: 0;
 }
 
-.nav-bar {
+.main-content {
+  align-items: center;
   background-color: $primary;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
   color: $font-color;
   display: flex;
-  height: 6.7vh;
-  justify-content: space-between;
-  padding: 0.5rem 0;
+  height: 84vh;
+  justify-content: center;
+  margin: 0;
 }
 
-.nav-link {
-  border-radius: 0.27rem;
-  display: block;
-  padding: 0.5rem;
+.nav-bar {
+  background-color: $primary;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .7), 0 6px 30px 0 rgba(255, 255, 255, .2);
+  color: $font-color;
+  display: flex;
+  height: 10vh;
+  justify-content: space-between;
+  padding: 0.5rem 0;
 }
 
 .nav-link.disabled {
   color: $black;
 }
 
-.nav-pills .nav-link.active {
-  background-color: $white;
-  color: $primary;
+.overflow-auto {
+  height: 70vh;
+}
+
+.show-smoothies {
+  padding: 0;
+  height: 60vh;
+}
+
+.view-smoothies-text,
+.smoothy-name-text {
+  text-align: center;
+  font-family: 'Lobster', cursive;
 }

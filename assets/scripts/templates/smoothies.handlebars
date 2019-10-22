@@ -1,0 +1,33 @@
+{{#each smoothies as |smoothie|}}
+  {{log smoothie}}
+  <section data-id="{{smoothie.id}}">
+    <p>
+      <h4>
+        Smoothie no. {{smoothie.id}}
+      </h4>
+    </p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".change-name-modal" data-smoothy-id="{{smoothie.id}}" data-ingredient="{{smoothie.name}}">{{smoothie.name}}</button>
+    <p>
+      <h6>Base:</h6>
+      <!-- {{smoothie.base}} -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".change-base-modal" data-smoothy-id="{{smoothie.id}}" data-ingredient="{{smoothie.base}}">{{smoothie.base}}</button>
+    </p>
+    <p>
+      <h6>Fruits:</h6>
+      {{smoothie.fruit}}
+    </p>
+    <p>
+      <h6>Vegetables:</h6>
+      {{smoothie.vegetable}}
+    </p>
+    <p>
+      <h6>Boosters:</h6>
+      {{smoothie.booster}}
+    </p>
+    <p>
+      <h6>Thickener:</h6>
+      {{smoothie.thickener}}
+    </p>
+  </section>
+  <hr>
+{{/each}}

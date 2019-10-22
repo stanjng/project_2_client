@@ -2,11 +2,12 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('./store.js')
 
 // --- Separater --- AUTHENTICATION INFORMATION ---------//
 
 // Sign Up
-const onSignUp = function(event) {
+const onSignUp = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -21,7 +22,7 @@ const onSignUp = function(event) {
 }
 
 // Sign In
-const onSignIn = function(event) {
+const onSignIn = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -36,7 +37,7 @@ const onSignIn = function(event) {
 }
 
 // Change Pw
-const onChangePw = function(event) {
+const onChangePw = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   const form = event.target
@@ -51,7 +52,7 @@ const onChangePw = function(event) {
 }
 
 // Sign Out
-const onSignOut = function(event) {
+const onSignOut = function (event) {
   event.preventDefault()
   // Stops page from refreshing
   api.signOut()
@@ -59,9 +60,110 @@ const onSignOut = function(event) {
     .catch(ui.onSignOutFailure)
 }
 
+// --- Separater --- CRUD CODE ---------//
+
+// View all smoothies
+const onViewAll = function (event) {
+  event.preventDefault()
+  // Stops page from refreshing
+  api.viewAll()
+    .then(ui.onViewAllSuccess)
+    .catch(ui.onViewAllFailure)
+}
+
+// View one smoothie by id
+const onViewOne = function (event) {
+  event.preventDefault()
+  // Stops page from refreshing
+  const form = event.target
+  console.log(form)
+  // Collects entire form: HTML + text
+  const formData = getFormFields(form)
+  console.log(formData)
+  // Parses and extracts the text from forms to be used as the argument for api.signIn
+  api.viewOne(formData.smoothyId)
+    .then(ui.onViewOneSuccess)
+    .catch(ui.onViewOneFailure)
+}
+
+// Create new smoothy
+const onCreate = function (event) {
+  event.preventDefault()
+  // Stops page from refreshing
+  const form = event.target
+  console.log(form)
+  // Collects entire form: HTML + text
+  const formData = getFormFields(form)
+  console.log(formData)
+  // Parses and extracts the text from forms to be used as the argument for api.signIn
+  api.createNew(formData)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateFailure)
+}
+
+// Update smoothy
+// const onUpdate = function (event) {
+//   console.log('testing if this works')
+//   event.preventDefault()
+//   // Stops page from refreshing
+//   const form = event.target
+//   console.log(form)
+//   // Collects entire form: HTML + text
+//   const formData = getFormFields(form)
+//   console.log(formData)
+//   // Parses and extracts the text from forms to be used as the argument for api.signIn
+//   api.update(formData)
+//     .then(ui.onUpdateSuccess)
+//     .catch(ui.onUpdateFailure)
+// }
+
+const onUpdate = function (event) {
+  console.log('testing if this works')
+  event.preventDefault()
+  // Stops page from refreshing
+  const id = $('#smoothy-update-id').val()
+  const name = $('#updated-name').val()
+  const base = $('#updated-base').val()
+  const fruit = $('#updated-fruit').val()
+  const vegetable = $('#updated-vegetable').val()
+  const booster = $('#updated-booster').val()
+  const thickener = $('#updated-thickener').val()
+  // Parses and extracts the text from forms to be used as the argument for api.signIn
+  api.update(id, name, base, fruit, vegetable, booster, thickener)
+    .then(ui.onUpdateSuccess)
+    .catch(ui.onUpdateFailure)
+}
+
+const onDelete = function (event) {
+  event.preventDefault()
+  // Stops page from refreshing
+  const id = $('.delete-smoothy').val()
+  api.destroy(id)
+    .then(ui.onDeleteSuccess)
+    .catch(ui.onDeleteFailure)
+}
+
+const changeComp = function (event) {
+  const button = $(event.relatedTarget) // Button that triggered the modal
+  const ingredient = button.data('ingredient')
+  const smoothyId = button.data('smoothy-id') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  const modal = $(this)
+  modal.find('.ingredient').val(ingredient)
+  modal.find('.smoothy-id').val(smoothyId)
+  console.log(button.data('smoothy-id'))
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePw,
-  onSignOut
+  onSignOut,
+  onViewAll,
+  onViewOne,
+  onCreate,
+  onUpdate,
+  onDelete,
+  changeComp
 }

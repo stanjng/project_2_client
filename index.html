@@ -21,45 +21,194 @@
     <!-- Separater -->
 
     <div class="col-12 nav-bar">
-      <h1>sMOO</h1>
-      <nav class="navbar navbar-inverse navbar-static-top">
 
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <!-- Separater -->
+
+      <h1>sMOO</h1>
+
+      <!-- Separater: Actual Nav -->
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <!-- Separater: Login Nav -->
+        <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="nav-link btn btn-primary nav-buttons login-button" data-toggle="modal" data-target="#login-info">
+              Login
+            </button>
+
+            <!-- Login Modal -->
+            <div class="modal fade" id="login-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div class="col-12" id="auth-msgs">Please login or sign up.</div>
+                    <br>
+                    <form id='sign-in'>
+                      Sign In<br>
+                      <input type="email" class="sign-in-toggle" name="credentials[email]" placeholder="Enter Email">
+                      <input type="password" class="sign-in-toggle" name="credentials[password]" placeholder="Enter Password">
+                      <button class="btn btn-primary btn-sm sign-in-toggle">Sign In</button>
+                    </form>
+                    <br>
+
+                    <form id='sign-up'>
+                      Sign Up<br>
+                      <input type="email" class="sign-up-toggle" name="credentials[email]" placeholder="Email">
+                      <input type="password" class="sign-up-toggle" name="credentials[password]" placeholder="Password">
+                      <input type="password" class="sign-up-toggle" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      <button class="btn btn-primary btn-sm sign-up-toggle">Sign Up</button>
+                    </form>
+
+                    <form id='change-pw' style="display: none">
+                      Change Password<br>
+                      <input type="password" class="change-pw-toggle" name="passwords[old]" placeholder="Old Password">
+
+                      <input type="password" class="change-pw-toggle" name="passwords[new]" placeholder="New Password">
+                      <button class="btn btn-primary btn-sm change-pw-toggle">Change Password</button>
+                    </form>
+
+                    <hr>
+
+                    <form id="sign-out" style="display: none">
+                      <button class="btn btn-primary btn-sm sign-out-toggle">Sign Out</button>
+                    </form><br>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Smoothies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">About</a>
-          </li>
-        </ul>
+
+          <!-- Create Smoothie Button trigger modal -->
+          <button type="button" class="nav-link btn btn-primary nav-buttons create-new-smoothie" data-toggle="modal" data-target="#create-new-smoothie" disabled>
+            Create Smoothie
+          </button>
+          <!-- Create Smoothie Modal -->
+          <div class="modal fade" id="create-new-smoothie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Enter smoothie details below:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body overflow-auto" id="smoothie-modal-text">
+                  <form id='create-smoothy'>
+                    Name<br>
+                    <input type="text" name="smoothy[name]" placeholder="Enter name (e.g. Stan's Berry Blast, Live Your D*** Life, etc.)"><br>
+                    Base<br>
+                    <input type="text" name="smoothy[base]" placeholder="Enter base (e.g. Soy milk, Whole milk, etc.)"><br>
+                    Fruits<br>
+                    <input type="text" name="smoothy[fruit]" placeholder="Enter fruits (e.g. Blueberries, Strawberries, etc.)"><br>
+                    Veggies<br>
+                    <input type="text" name="smoothy[vegetable]" placeholder="Enter vegetables (e.g. Kale, Spinach, etc.)"><br>
+                    Boosters<br>
+                    <input type="text" name="smoothy[booster]" placeholder="Enter boosters (e.g. Protein, Spirulina, etc.)"><br>
+                    Thickeners<br>
+                    <input type="text" name="smoothy[thickener]" placeholder="Enter thickeners (e.g. Peanut butter, Chia seeds, etc.)">
+                    <br>
+                    <button class="btn btn-primary btn-sm">Save Smoothie</button>
+                  </form>
+                  <hr>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Smoothie Modal -->
+
+          <!-- View Smoothies Button trigger modal -->
+          <button type="button" class="nav-link btn btn-primary nav-buttons view-smoothies-modal" data-toggle="modal" data-target="#view-smoothies-modal" disabled>
+            View Smoothies
+          </button>
+          <!-- View Smoothies Modal -->
+          <div class="modal fade" id="view-smoothies-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Check Out or Modify Your Smoothies:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body overflow-auto">
+                  <form id='view-one-smoothie'>
+                    <input type="number" min="0" step="1" name="smoothyId" placeholder="Smoothie ID">
+                    <button class="btn btn-primary btn-sm">View Smoothie</button>
+                    <hr>
+                  </form>
+
+                  <form id='delete-smoothy'>
+                    <input class='delete-smoothy' type="number" min="0" step="1" name="smoothyId" placeholder="Smoothie ID">
+                    <button class="btn btn-primary btn-sm">Delete Smoothie</button>
+                  </form>
+                  <hr>
+
+                  <form id='update-smoothy'>
+                    <h4>Update smoothie</h4>
+                    <input id='smoothy-update-id' type="number" min="0" step="1" name="smoothy[id]" placeholder="Smoothie ID">
+                    <input type="text" id="updated-name" name="smoothy[name]" placeholder="Updated name">
+                    <input type="text" id="updated-base" name="smoothy[base]" placeholder="Updated base">
+                    <input type="text" id="updated-fruit" name="smoothy[fruit]" placeholder="Updated fruits">
+                    <input type="text" id="updated-vegetable" name="smoothy[vegetable]" placeholder="Updated vegetables">
+                    <input type="text" id="updated-booster" name="smoothy[booster]" placeholder="Updated boosters">
+                    <input type="text" id="updated-thickener" name="smoothy[thickener]" placeholder="Updated thickeners">
+                    <button class="btn btn-primary btn-sm">Edit This Smoothie</button>
+                  </form>
+                  <hr>
+
+                  <!-- <form id='view-all-smoothies'>
+                    <button class="btn btn-primary btn-sm">View All Smoothies</button>
+                  </form>
+                  <hr> -->
+                  <div class="view-smoothies-text"><h3>View your smoothies below:</h3></div>
+                  <div class="show-smoothies overflow-auto">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End View Smoothies Modal -->
+
+          <!-- UPDATE change-base-modal -->
+          <div class="modal fade change-base-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="id-text" class="col-form-label">Smoothie ID</label>
+                      <input type="text" class="form-control smoothy-id" id="id-text" disabled>
+                    </div>
+                    <div class="form-group">
+                      <label for="base-text" class="col-form-label">Make changes below:</label>
+                      <input type="text" class="form-control ingredient" id="base-text">
+                    </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End UPDATE change-base-modal -->
 
       </nav>
+      <!-- Separater: End Nav -->
     </div>
 
     <!-- Separater -->
     <div class="w-100"></div>
     <!-- Separater -->
 
-    <div class="col-12 main-content">
-
-      <!-- Separater LOGIN DATA BELOW-->
-      <div class="col-8 home-image">
-        <img src="assets/media/smoothie-1.jpg" width="100%" />
-      </div>
-
-      <!-- Separater SMOOTHIE DATA BELOW-->
-
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-      </div>
-
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-
-      </div>
+    <!-- <div class="col-12 main-content"> -->
+    <div class="col-12 home-image">
+      <img src="assets/media/smoothie-2.jpg" width="100%" />
     </div>
+    <!-- </div> -->
 
 
   </div>

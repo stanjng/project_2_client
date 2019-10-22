@@ -4,7 +4,7 @@ const store = require('./store.js')
 const config = require('./config')
 // const store = require('./store.js')
 
-const signUp = function (formData) {
+const signUp = function(formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up/',
@@ -12,7 +12,7 @@ const signUp = function (formData) {
   })
 }
 
-const signIn = function (formData) {
+const signIn = function(formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in/',
@@ -20,7 +20,7 @@ const signIn = function (formData) {
   })
 }
 
-const changePw = function (formData) {
+const changePw = function(formData) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password/',
@@ -31,7 +31,7 @@ const changePw = function (formData) {
   })
 }
 
-const signOut = function () {
+const signOut = function() {
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
@@ -41,49 +41,76 @@ const signOut = function () {
   })
 }
 
-// const create = function () {
-//   return $.ajax({
-//     method: 'POST',
-//     url: config.apiUrl + '/games/',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: ``
-//   })
-// }
-//
-// const update = function (index, value, gameOver) {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: config.apiUrl + '/games/' + store.game.id,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: {
-//       'game': {
-//         'cells': {
-//           'index': index,
-//           'value': value
-//         },
-//         'over': gameOver // store.game.over
-//       }
-//     }
-//   })
-// }
-//
-// const retrieve = function () {
-//   return $.ajax({
-//     method: 'GET',
-//     url: config.apiUrl + `/games?over=true`,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const viewAll = function() {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + `/smoothies`,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const viewOne = function(smoothieId) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + `/smoothies/` + smoothieId,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createNew = function(formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/smoothies',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
+const update = function(id, name, base, fruit, vegetable, booster, thickener) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + `/smoothies/` + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'smoothy': {
+        'id': id,
+        'name': name,
+        'base': base,
+        'fruit': fruit,
+        'vegetable': vegetable,
+        'booster': booster,
+        'thickener': thickener
+      }
+    }
+  })
+}
+
+const destroy = function(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + `/smoothies/` + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePw
+  changePw,
+  viewAll,
+  viewOne,
+  createNew,
+  update,
+  destroy
 }
