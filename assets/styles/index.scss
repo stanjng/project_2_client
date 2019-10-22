@@ -136,6 +136,10 @@ select {
   font-family: 'Lobster', cursive;
 }
 @media screen and (max-width: 633px) {
+  body {
+    max-width: 100%;
+    padding:0;
+  }
   .nav-bar {
     height: fit-content;
     flex-direction: column;

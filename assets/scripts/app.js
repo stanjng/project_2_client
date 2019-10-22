@@ -20,7 +20,7 @@ $(() => {
   $('#delete-smoothy').on('submit', events.onDelete)
   $('#updating-modal').on('show.bs.modal', events.changeComp)
   $('.view-single-smoothie-div').on('click', events.onShow)
-  $('#view-smoothy').on('submit', events.onPassId)
+  $('.view-smoothy').on('submit', events.onPassId)
   $('.select-a-smoothy').on('click', () => {
     $('.show-smoothies').html(``)
   })
