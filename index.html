@@ -16,7 +16,7 @@
 <body>
   <div class="container">
 
-    <div class="col-12 borders"></div>
+    <!-- <div class="col-12 borders"></div> -->
 
     <!-- Separater -->
 
@@ -31,7 +31,6 @@
       <nav class="navbar navbar-inverse navbar-static-top">
         <!-- Separater: Login Nav -->
         <ul class="nav nav-pills">
-          <li class="nav-item">
             <!-- Button trigger modal -->
             <button type="button" class="nav-link btn btn-primary nav-buttons login-button" data-toggle="modal" data-target="#login-info">
               Login
@@ -79,11 +78,10 @@
                 </div>
               </div>
             </div>
-          </li>
 
           <!-- Create Smoothie Button trigger modal -->
           <button type="button" class="nav-link btn btn-primary nav-buttons create-new-smoothie" data-toggle="modal" data-target="#create-new-smoothie" disabled>
-            Create Smoothie
+            Create New
           </button>
           <!-- Create Smoothie Modal -->
           <div class="modal fade" id="create-new-smoothie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -122,49 +120,33 @@
 
           <!-- View Smoothies Button trigger modal -->
           <button type="button" class="nav-link btn btn-primary nav-buttons view-smoothies-modal" data-toggle="modal" data-target="#view-smoothies-modal" disabled>
-            View Smoothies
+            View All
           </button>
           <!-- View Smoothies Modal -->
           <div class="modal fade" id="view-smoothies-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Check Out or Modify Your Smoothies:</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle">Check Out Your Collection:</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body overflow-auto">
-                  <form id='view-one-smoothie'>
+                  <!-- <form id='view-one-smoothie'>
                     <input type="number" min="0" step="1" name="smoothyId" placeholder="Smoothie ID">
                     <button class="btn btn-primary btn-sm">View Smoothie</button>
                     <hr>
-                  </form>
+                  </form> -->
+                  <p>
+                    <form id='view-all-smoothies'>
+                      <button class="btn btn-primary btn-sm">View All Smoothies</button>
+                    </form>
+                  </p>
+                  <div class="view-smoothies-text">
+                    <h3>View your smoothies below:</h3>
+                  </div>
 
-                  <form id='delete-smoothy'>
-                    <input class='delete-smoothy' type="number" min="0" step="1" name="smoothyId" placeholder="Smoothie ID">
-                    <button class="btn btn-primary btn-sm">Delete Smoothie</button>
-                  </form>
-                  <hr>
-
-                  <form id='update-smoothy'>
-                    <h4>Update smoothie</h4>
-                    <input id='smoothy-update-id' type="number" min="0" step="1" name="smoothy[id]" placeholder="Smoothie ID">
-                    <input type="text" id="updated-name" name="smoothy[name]" placeholder="Updated name">
-                    <input type="text" id="updated-base" name="smoothy[base]" placeholder="Updated base">
-                    <input type="text" id="updated-fruit" name="smoothy[fruit]" placeholder="Updated fruits">
-                    <input type="text" id="updated-vegetable" name="smoothy[vegetable]" placeholder="Updated vegetables">
-                    <input type="text" id="updated-booster" name="smoothy[booster]" placeholder="Updated boosters">
-                    <input type="text" id="updated-thickener" name="smoothy[thickener]" placeholder="Updated thickeners">
-                    <button class="btn btn-primary btn-sm">Edit This Smoothie</button>
-                  </form>
-                  <hr>
-
-                  <!-- <form id='view-all-smoothies'>
-                    <button class="btn btn-primary btn-sm">View All Smoothies</button>
-                  </form>
-                  <hr> -->
-                  <div class="view-smoothies-text"><h3>View your smoothies below:</h3></div>
                   <div class="show-smoothies overflow-auto">
                   </div>
                 </div>
@@ -173,29 +155,79 @@
           </div>
           <!-- End View Smoothies Modal -->
 
-          <!-- UPDATE change-base-modal -->
-          <div class="modal fade change-base-modal" tabindex="-1" role="dialog">
+          <!-- View/Delete One Modal button -->
+          <button type="button" class="nav-link btn btn-primary nav-buttons view-single-smoothie-div" data-toggle="modal" data-target="#example-modal" disabled>
+            View Smoothie
+          </button>
+          <!-- View/Delete One Modal  -->
+          <div class="modal fade" id="example-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="id-text" class="col-form-label">Smoothie ID</label>
-                      <input type="text" class="form-control smoothy-id" id="id-text" disabled>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Select a Smoothie:</h5>
+                  <button type="button" class="close select-a-smoothy" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body overflow-auto">
+                  <div id="example-div">
+                    <form id="example-form-submit">
+                      <div class="form-group">
+                        <label for="example-div-display">Select smoothie from the list::</label>
+                        <select multiple class="form-control" id="example-div-display">
+                        </select>
+                      </div>
+                      <button class="btn btn-primary btn-sm">View</button>
+                      <hr>
+                    </form>
+                    <form id="delete-smoothy">
+                      <div class="form-group">
+                        <label for="delete-smoothie">Delete smoothie from the list:</label>
+                        <select multiple class="form-control" id="delete-smoothie">
+                        </select>
+                      </div>
+                      <button class="btn btn-primary btn-sm">Delete</button>
+                      <hr>
+                    </form>
+                    <div class="show-smoothies overflow-auto">
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End View/Delete One Modal -->
+
+          <!-- UPDATE change-base-modal -->
+          <div class="modal fade" id="updating-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Check Out or Modify Your Smoothies:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="update-smoothy">
                     <div class="form-group">
                       <label for="base-text" class="col-form-label">Make changes below:</label>
-                      <input type="text" class="form-control ingredient" id="base-text">
-                    </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save Changes</button>
+                      <h4>Update smoothie</h4>
+                      <input type="text" class="form-control smoothy-id" id="id-text" disabled>
+                      <input type="text" id="updated-name" name="smoothy[name]" placeholder="Updated name">
+                      <input type="text" id="updated-base" name="smoothy[base]" placeholder="Updated base">
+                      <input type="text" id="updated-fruit" name="smoothy[fruit]" placeholder="Updated fruits">
+                      <input type="text" id="updated-vegetable" name="smoothy[vegetable]" placeholder="Updated vegetables">
+                      <input type="text" id="updated-booster" name="smoothy[booster]" placeholder="Updated boosters">
+                      <input type="text" id="updated-thickener" name="smoothy[thickener]" placeholder="Updated thickeners">
+                      <button class="btn btn-primary btn-sm">Edit This Smoothie</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
           <!-- End UPDATE change-base-modal -->
-
+        </ul>
       </nav>
       <!-- Separater: End Nav -->
     </div>
@@ -205,7 +237,7 @@
     <!-- Separater -->
 
     <!-- <div class="col-12 main-content"> -->
-    <div class="col-12 home-image">
+    <div class="col-12" id="home-image">
       <img src="assets/media/smoothie-2.jpg" width="100%" />
     </div>
     <!-- </div> -->
@@ -215,7 +247,7 @@
 
   <!-- Separater -->
 
-  <div class="col-12 borders"></div>
+  <!-- <div class="col-12 borders"></div> -->
 
   </div>
 </body>

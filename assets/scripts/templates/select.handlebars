@@ -1,0 +1,5 @@
+{{#each smoothies as |smoothie|}}
+  {{log smoothie}}
+      <option id="individual-smoothie" data-smoothiesid="{{smoothie.id}}">{{smoothie.id}}. {{smoothie.name}}</option>
+  <hr>
+{{/each}}

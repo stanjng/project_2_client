@@ -18,6 +18,10 @@ $(() => {
   $('#create-smoothy').on('submit', events.onCreate)
   $('#update-smoothy').on('submit', events.onUpdate)
   $('#delete-smoothy').on('submit', events.onDelete)
-  // $('.change-name-modal').on('show.bs.modal', events.changeComp)
-  $('.change-base-modal').on('show.bs.modal', events.changeComp)
+  $('#updating-modal').on('show.bs.modal', events.changeComp)
+  $('.view-single-smoothie-div').on('click', events.onExample)
+  $('#example-form-submit').on('submit', events.exEvents)
+  $('.select-a-smoothy').on('click', () => {
+    $('.show-smoothies').html(``)
+  })
 })
