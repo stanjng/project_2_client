@@ -4,43 +4,35 @@ const store = require('./store.js')
 const smoothieHandlebar = require('./templates/smoothies.handlebars')
 const selectHandlebar = require('./templates/select.handlebars')
 
-// General Success Messages
-const successMessage = function (successText, displayText) {
-  $('#auth-msgs').text(successText)
-  setTimeout(function () {
-    $('#auth-msgs').text(displayText)
-  }, 1800)
-}
-
-const failureMessage = function (failureText, displayText) {
-  $('#auth-msgs').text(failureText)
-  setTimeout(function () {
-    $('#auth-msgs').text(displayText)
-  }, 1800)
-}
-
 // --------------------------------------- SIGN UP
-const onSignUpSuccess = function () {
+const onSignUpSuccess = function() {
   $('#sign-up').trigger('reset')
   // Clears forms
   $('.sign-up-btn').text('Sign up successful! Please login.', 'Please login or sign up.')
   setTimeout(() => {
     $('.sign-up-btn').text('Sign Up')
-  }, 5000)
+  }, 4000)
 }
 
-const onSignUpFailure = function () {
+const onSignUpFailure = function() {
   $('#sign-up').trigger('reset')
-  failureMessage('This email is already registered. Please login.', 'Please login or sign up.')
+  // Clears forms
+  $('.sign-up-btn').text('Sign up failed! Email may already be in use.')
+  setTimeout(() => {
+    $('.sign-up-btn').text('Sign Up')
+  }, 4000)
 }
 
 // --------------------------------------- SIGN IN
-const onSignInSuccess = function (responseData) {
-  successMessage('Sign in successful!', 'Change password or sign out.')
+const onSignInSuccess = function(responseData) {
   store.user = responseData.user
   console.log(store.user)
   // Stores key
   $('#sign-in').trigger('reset')
+  $('.sign-in-btn').text('Sign in successful!')
+  setTimeout(() => {
+    $('.sign-in-btn').text('Sign In')
+  }, 4000)
   // Clears forms
   $('#sign-in').hide()
   $('#sign-up').hide()
@@ -57,15 +49,21 @@ const onSignInSuccess = function (responseData) {
   // Changes button upon sign in.
 }
 
-const onSignInFailure = function () {
-  failureMessage('Sign in failed. Please try again.', 'Please login or sign up.')
+const onSignInFailure = function() {
   $('#sign-in').trigger('reset')
+  $('.sign-in-btn').text('Sign in failed! Check your email & password and try again.')
+  setTimeout(() => {
+    $('.sign-in-btn').text('Sign In')
+  }, 4000)
 }
 
 // --------------------------------------- CHANGE PW
-const onChangePwSuccess = function () {
-  successMessage('Password change successful. Please login.', 'Please login or sign up.')
+const onChangePwSuccess = function() {
   $('#change-pw').trigger('reset')
+  $('.change-pw-btn').text('Password change successful. Please login again.')
+  setTimeout(() => {
+    $('.change-pw-btn').text('Change Password')
+  }, 4000)
   // Clear forms
   $('#sign-in').show()
   $('#sign-up').show()
@@ -82,13 +80,16 @@ const onChangePwSuccess = function () {
   // Changes button/modal titles upon change pw.
 }
 
-const onChangePwFailure = function () {
+const onChangePwFailure = function() {
   $('#change-pw').trigger('reset')
-  failureMessage('Password change unsuccesful. Please try again.', 'Change password or sign up.')
+  $('.change-pw-btn').text('Password change unsuccesful. Please try again.')
+  setTimeout(() => {
+    $('.change-pw-btn').text('Change Password')
+  }, 4000)
 }
 
 // --------------------------------------- SIGN OUT
-const onSignOutSuccess = function () {
+const onSignOutSuccess = function() {
   successMessage('Signed out! Please login again.', 'Please login or sign up.')
   $('form').trigger('reset')
   $('#sign-in').show()
@@ -106,8 +107,12 @@ const onSignOutSuccess = function () {
   // Changes button/modal titles upon sign out.
 }
 
-const onSignOutFailure = function () {
-  failureMessage('Sign out unsuccessful. Contact the administrator or close your browser.', 'Change password or sign out.')
+const onSignOutFailure = function() {
+  $('form').trigger('reset')
+  $('.sign-out-btn').text('Sign out failed. Please try again.')
+  setTimeout(() => {
+    $('.sign-out-btn').text('Sign Out')
+  }, 2000)
 }
 
 // ----------------------------------------
@@ -116,7 +121,7 @@ const onSignOutFailure = function () {
 // ----------------------------------------
 // ----------------------------------------
 
-const onViewAllSuccess = function (smoothieData) {
+const onViewAllSuccess = function(smoothieData) {
   $('.show-smoothies').html(``)
   $('.show-smoothies').append(smoothieHandlebar({
     smoothies: smoothieData.smoothies
@@ -128,12 +133,12 @@ const onViewAllSuccess = function (smoothieData) {
   }, 1800)
 }
 
-const onViewAllFailure = function () {
+const onViewAllFailure = function() {
   $('.show-smoothies').html(``)
   $('.show-smoothies').html(`Something wrong happened.`)
 }
 
-const onViewOneSuccess = function (smoothyData) {
+const onViewOneSuccess = function(smoothyData) {
   console.log(smoothyData)
   $('.show-smoothies').html(``)
   $('.show-smoothies').append(smoothieHandlebar({
@@ -145,12 +150,12 @@ const onViewOneSuccess = function (smoothyData) {
   }, 1800)
 }
 
-const onViewOneFailure = function () {
+const onViewOneFailure = function() {
   $('#show-smoothies').html(``)
   $('#show-smoothies').html(`Something wrong happened.`)
 }
 
-const onCreateSuccess = function () {
+const onCreateSuccess = function() {
   $('#create-smoothy').trigger('reset')
   $('.save-smoothie-btn').text('Smoothie saved!')
   setTimeout(() => {
@@ -158,7 +163,7 @@ const onCreateSuccess = function () {
   }, 1800)
 }
 
-const onCreateFailure = function () {
+const onCreateFailure = function() {
   $('#create-smoothy').trigger('reset')
   $('.save-smoothie-btn').text('Something went wrong!')
   setTimeout(() => {
@@ -166,7 +171,7 @@ const onCreateFailure = function () {
   }, 1800)
 }
 
-const onUpdateSuccess = function (smoothyData) {
+const onUpdateSuccess = function(smoothyData) {
   console.log(smoothyData)
   onViewOneSuccess(smoothyData)
   // onViewOneSuccess()
@@ -176,18 +181,18 @@ const onUpdateSuccess = function (smoothyData) {
     $('.update-smoothie-btn').text('Modify Smoothie')
   }, 1800)
 }
-const onUpdateFailure = function () {
+const onUpdateFailure = function() {
   console.log('fuck try again')
 }
 
-const onDeleteSuccess = function (smoothyData) {
+const onDeleteSuccess = function(smoothyData) {
   $('.delete-single-btn').text(`Success! Please 'x' out of window.`)
   setTimeout(() => {
     $('.delete-single-btn').text('Delete')
   }, 4000)
 }
 
-const onShowSuccess = function (exampleData) {
+const onShowSuccess = function(exampleData) {
   $('#example-div-display').html(``)
   $('#example-div-display').append(selectHandlebar({
     smoothies: exampleData.smoothies
