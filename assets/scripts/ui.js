@@ -192,6 +192,7 @@ const onDeleteSuccess = function (smoothyData) {
   setTimeout(() => {
     $('.delete-single-btn').text('Delete')
   }, 4000)
+  $('.show-smoothies').html(``)
 }
 
 const onDeleteFailure = function (smoothyData) {
