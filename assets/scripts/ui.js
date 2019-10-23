@@ -23,7 +23,10 @@ const failureMessage = function (failureText, displayText) {
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
   // Clears forms
-  successMessage('Sign up successful! Please login.', 'Please login or sign up.')
+  $('.sign-up-btn').text('Sign up successful! Please login.', 'Please login or sign up.')
+  setTimeout(() => {
+    $('.sign-up-btn').text('Sign Up')
+  }, 5000)
 }
 
 const onSignUpFailure = function () {
