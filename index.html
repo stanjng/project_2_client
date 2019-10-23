@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>sMoo by Stan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="cloud-container">
+
+    <!-- Separater -->
+
+    <div class="col-12 nav-bar">
+
+      <!-- Separater -->
+
+      <h1>sMOO</h1>
+
+      <!-- Separater: Actual Nav -->
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <!-- Separater: Login Nav -->
+        <ul class="nav nav-pills">
+            <!-- Button trigger modal -->
+            <button type="button" class="nav-link btn btn-primary nav-buttons login-button" data-toggle="modal" data-target="#login-info">
+              Login
+            </button>
+
+            <!-- Login Modal -->
+            <div class="modal fade" id="login-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="auth-modal-title">Login or Sign Up Here:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form id='sign-in'>
+                      Sign In<br>
+                      <input type="email" class="sign-in-toggle" name="credentials[email]" placeholder="Enter Email">
+                      <input type="password" class="sign-in-toggle" name="credentials[password]" placeholder="Enter Password">
+                      <button class="btn btn-primary btn-sm sign-in-toggle sign-in-btn">Sign In</button>
+                    </form>
+                    <br>
+
+                    <form id='sign-up'>
+                      Sign Up<br>
+                      <input type="email" class="sign-up-toggle" name="credentials[email]" placeholder="Email">
+                      <input type="password" class="sign-up-toggle" name="credentials[password]" placeholder="Password">
+                      <input type="password" class="sign-up-toggle" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      <button class="btn btn-primary btn-sm sign-up-toggle sign-up-btn">Sign Up</button>
+                    </form>
+
+                    <form id='change-pw' style="display: none">
+                      Change Password<br>
+                      <input type="password" class="change-pw-toggle" name="passwords[old]" placeholder="Old Password">
+
+                      <input type="password" class="change-pw-toggle" name="passwords[new]" placeholder="New Password">
+                      <button class="btn btn-primary btn-sm change-pw-btn">Change Password</button>
+                    </form>
+
+                    <hr>
+
+                    <form id="sign-out" style="display: none">
+                      <button class="btn btn-primary btn-sm sign-out-btn">Sign Out</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Create Smoothie Button trigger modal -->
+          <button type="button" class="nav-link btn btn-primary nav-buttons create-new-smoothie" data-toggle="modal" data-target="#create-new-smoothie" disabled>
+            Create New
+          </button>
+          <!-- Create Smoothie Modal -->
+          <div class="modal fade" id="create-new-smoothie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Enter smoothie details below:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body overflow-auto" id="smoothie-modal-text">
+                  <form id='create-smoothy'>
+                    Name
+                    <input type="text" name="smoothy[name]" placeholder="Enter name (e.g. Stan's Berry Blast, Live Your D*** Life, etc.)"><br>
+                    Base
+                    <input type="text" name="smoothy[base]" placeholder="Enter base (e.g. Soy milk, Whole milk, etc.)"><br>
+                    Fruits
+                    <input type="text" name="smoothy[fruit]" placeholder="Enter fruits (e.g. Blueberries, Strawberries, etc.)"><br>
+                    Veggies
+                    <input type="text" name="smoothy[vegetable]" placeholder="Enter vegetables (e.g. Kale, Spinach, etc.)"><br>
+                    Boosters
+                    <input type="text" name="smoothy[booster]" placeholder="Enter boosters (e.g. Protein, Spirulina, etc.)"><br>
+                    Thickeners
+                    <input type="text" name="smoothy[thickener]" placeholder="Enter thickeners (e.g. Peanut butter, Chia seeds, etc.)">
+                    <br>
+                    <button class="btn btn-primary btn-sm save-smoothie-btn">Save Smoothie</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Smoothie Modal -->
+
+          <!-- View Smoothies Button trigger modal -->
+          <button type="button" class="nav-link btn btn-primary nav-buttons view-smoothies-modal" data-toggle="modal" data-target="#view-smoothies-modal" disabled>
+            View All
+          </button>
+          <!-- View Smoothies Modal -->
+          <div class="modal fade" id="view-smoothies-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Check Out Your Collection:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body overflow-auto show-smoothies-body">
+                  <p>
+                    <form id='view-all-smoothies'>
+                      <button class="btn btn-primary btn-sm view-all-smoothies-btn">View All Smoothies</button>
+                    </form>
+                  </p>
+                  <div class="view-smoothies-text">
+                    <h3>View your smoothies below:</h3>
+                  </div>
+
+                  <div class="show-smoothies overflow-auto">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End View Smoothies Modal -->
+
+          <!-- View/Delete One Modal button -->
+          <button type="button" class="nav-link btn btn-primary nav-buttons view-single-smoothie-div" data-toggle="modal" data-target="#patch-modal" disabled>
+            View Smoothie
+          </button>
+          <!-- View/Delete One Modal  -->
+          <div class="modal fade" id="patch-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content select-smoothies-body">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Select a Smoothie:</h5>
+                  <button type="button" class="close select-a-smoothy" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body overflow-auto">
+                  <div id="example-div">
+                    <form class="view-smoothy">
+                      <div class="form-group">
+                        <label for="example-div-display">Select smoothie from the list:</label>
+                        <select id="example-div-display">
+                        </select>
+                      </div>
+                      <button class="btn btn-primary btn-sm view-single-btn">View</button>
+                    </form>
+                    <p><form id="delete-smoothy">
+                      <!-- <div class="form-group">
+                        <label for="delete-smoothie">Delete smoothie from the list:</label>
+                        <select id="delete-smoothie">
+                        </select>
+                      </div> -->
+                      <button class="btn btn-primary btn-sm delete-single-btn">Delete</button>
+                    </p>
+                    </form>
+                    <div class="view-smoothies-text">
+                      <h3>View your smoothie below:</h3>
+                    </div>
+                    <div class="show-smoothies overflow-auto">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End View/Delete One Modal -->
+
+          <!-- UPDATE change-base-modal -->
+          <div class="modal fade" id="updating-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Check Out or Modify Your Smoothies:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="update-smoothy">
+                    <div class="form-group">
+                      <label for="base-text" class="col-form-label">Make changes below:</label>
+                      <h4>Update Smoothie</h4>
+                      <input type="text" class="form-control smoothy-id" id="id-text" disabled>
+                      <input type="text" id="updated-name" name="smoothy[name]" placeholder="Updated name">
+                      <input type="text" id="updated-base" name="smoothy[base]" placeholder="Updated base">
+                      <input type="text" id="updated-fruit" name="smoothy[fruit]" placeholder="Updated fruits">
+                      <input type="text" id="updated-vegetable" name="smoothy[vegetable]" placeholder="Updated vegetables">
+                      <input type="text" id="updated-booster" name="smoothy[booster]" placeholder="Updated boosters">
+                      <input type="text" id="updated-thickener" name="smoothy[thickener]" placeholder="Updated thickeners">
+                      <button class="btn btn-primary btn-sm update-smoothie-btn">Change this Smoothie</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End UPDATE change-base-modal -->
+        </ul>
+      </nav>
+      <!-- Separater: End Nav -->
+    </div>
+
+    <!-- Separater -->
+    <div class="w-100"></div>
+    <!-- Separater -->
+
+    <!-- <div class="col-12 main-content"> -->
+    <div class="col" id="home-image">
+      <img src="./public/smoothie-2.jpg" width="100%" />
+    </div>
+    <!-- </div> -->
+
+
+  </div>
+
+  <!-- Separater -->
+
+  <!-- <div class="col-12 borders"></div> -->
+
+  </div>
+</body>
+
+</html>
