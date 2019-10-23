@@ -127,7 +127,7 @@ const onViewAllSuccess = function (smoothieData) {
   $('.view-all-smoothies-btn').text('Updated!')
   setTimeout(() => {
     $('.view-all-smoothies-btn').text('View All Smoothies')
-  }, 1800)
+  }, 500)
 }
 
 const onViewAllFailure = function () {
@@ -188,7 +188,7 @@ const onUpdateFailure = function () {
 }
 
 const onDeleteSuccess = function (smoothyData) {
-  $('.delete-single-btn').text(`Success! Please 'x' out of window.`)
+  $('.delete-single-btn').text(`Success!`)
   setTimeout(() => {
     $('.delete-single-btn').text('Delete')
   }, 4000)

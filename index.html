@@ -149,11 +149,11 @@
           <!-- End View Smoothies Modal -->
 
           <!-- View/Delete One Modal button -->
-          <button type="button" class="nav-link btn btn-primary nav-buttons view-single-smoothie-div" data-toggle="modal" data-target="#example-modal" disabled>
+          <button type="button" class="nav-link btn btn-primary nav-buttons view-single-smoothie-div" data-toggle="modal" data-target="#patch-modal" disabled>
             View Smoothie
           </button>
           <!-- View/Delete One Modal  -->
-          <div class="modal fade" id="example-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal fade" id="patch-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content select-smoothies-body">
                 <div class="modal-header">
@@ -167,20 +167,19 @@
                     <form class="view-smoothy">
                       <div class="form-group">
                         <label for="example-div-display">Select smoothie from the list:</label>
-                        <select multiple class="form-control" id="example-div-display">
+                        <select id="example-div-display">
                         </select>
                       </div>
                       <button class="btn btn-primary btn-sm view-single-btn">View</button>
-                      <hr>
                     </form>
-                    <form id="delete-smoothy">
-                      <div class="form-group">
+                    <p><form id="delete-smoothy">
+                      <!-- <div class="form-group">
                         <label for="delete-smoothie">Delete smoothie from the list:</label>
-                        <select multiple class="form-control" id="delete-smoothie">
+                        <select id="delete-smoothie">
                         </select>
-                      </div>
+                      </div> -->
                       <button class="btn btn-primary btn-sm delete-single-btn">Delete</button>
-                      <hr>
+                    </p>
                     </form>
                     <div class="view-smoothies-text">
                       <h3>View your smoothie below:</h3>
