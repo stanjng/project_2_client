@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oxygen&display=swap');
 $primary: #ff404c;
 $secondary: #ffa5ab;
 $tertiary: #c0000d;
@@ -18,18 +19,20 @@ html {
 }
 
 body {
-  height: 100%;
-  margin: 0;
+  background-attachment: fixed;
   background-image: linear-gradient(to bottom right, $white, $secondary);
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  font-family: 'Dosis', sans-serif;
+  height: 100%;
+  margin: 0;
+  font-family: 'Oxygen', sans-serif;
 }
 
 button {
-  color: $tertiary;
   background-color: $secondary;
   border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+  color: $tertiary;
 }
 
 form {
@@ -39,16 +42,25 @@ form {
 }
 
 h1 {
+  color: $tertiary;
   font-family: 'Lobster', cursive;
   line-height: 1.4;
   padding-left: 1rem;
-  color: $tertiary;
   text-shadow: 1px 1px 4px $black, 0 6px 3px $white;
 }
 
+h4 {
+  font-family: 'Lobster', cursive;
+  padding-left: 1rem;
+}
+
+h6 {
+  font-style: bold;
+}
+
 select {
-  height: 3vh;
   font-size: 1rem;
+  height: 3vh;
 }
 
 #auth-msgs {
@@ -56,9 +68,9 @@ select {
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 27px 0 rgba(255, 255, 255, 0.2);
   color: $black;
   display: flex;
+  font-size: 1rem;
   height: 8vh;
   justify-content: center;
-  font-size: 1rem;
 }
 
 .borders {
@@ -67,8 +79,8 @@ select {
 }
 
 .btn-primary {
-  border: 0;
   background-color: $tertiary;
+  border: 0;
   font-size: 0.75rem;
 }
 
@@ -78,18 +90,18 @@ select {
 }
 
 .btn-primary:hover {
-  color: $tertiary;
   background-color: $primary;
   border: 0;
+  color: $tertiary;
 }
 
 .cloud-container {
-  position: absolute;
-  top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 #home-image {
@@ -129,14 +141,24 @@ select {
 }
 
 .show-smoothies {
-  padding: 0;
   height: 60vh;
+  padding: 0;
 }
 
 .smoothy-name-text,
 .view-smoothies-text {
-  text-align: center;
   font-family: 'Lobster', cursive;
+  text-align: center;
+}
+
+#updated-base,
+#updated-booster,
+#updated-fruit,
+#updated-name,
+#updated-thickener,
+#updated-vegetable {
+  display: block;
+  width: 100%;
 }
 @media screen and (max-width: 633px) {
   body {
@@ -145,8 +167,8 @@ select {
   }
 
   .nav-bar {
-    height: fit-content;
     flex-direction: column;
+    height: fit-content;
   }
 
   .navbar {

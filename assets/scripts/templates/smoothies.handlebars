@@ -1,32 +1,20 @@
 {{#each smoothies as |smoothie|}}
   <section data-id="{{smoothie.id}}">
-    <p>
-      <h4>
-        Smoothie no. <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updating-modal" data-smoothy-id="{{smoothie.id}}">{{smoothie.id}}</button>
-      </h4>
-    </p>
+    <h4>
+      Smoothie no. <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updating-modal" data-smoothy-id="{{smoothie.id}}">{{smoothie.id}}</button>
+    </h4>
+    <h6>Name</h6>
     {{smoothie.name}}
-    <p>
-      <h6>Base:</h6>
-      <!-- {{smoothie.base}} -->
-      {{smoothie.base}}
-    </p>
-    <p>
-      <h6>Fruits:</h6>
-      {{smoothie.fruit}}
-    </p>
-    <p>
-      <h6>Vegetables:</h6>
-      {{smoothie.vegetable}}
-    </p>
-    <p>
-      <h6>Boosters:</h6>
-      {{smoothie.booster}}
-    </p>
-    <p>
-      <h6>Thickener:</h6>
-      {{smoothie.thickener}}
-    </p>
+    <h6>Base:</h6>
+    {{smoothie.base}}
+    <h6>Fruits:</h6>
+    {{smoothie.fruit}}
+    <h6>Vegetables:</h6>
+    {{smoothie.vegetable}}
+    <h6>Boosters:</h6>
+    {{smoothie.booster}}
+    <h6>Thickener:</h6>
+    {{smoothie.thickener}}
   </section>
   <hr>
 {{/each}}
