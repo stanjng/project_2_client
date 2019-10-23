@@ -5,7 +5,7 @@ Smoothies are delicious and nutricious way to obtain the daily necessary vitamin
 
 ## Front End
 [Deployed Client](https://stanjng.github.io/project_2_client/)
-[Repository](https://stanjng.github.io/project_2_client/)
+[Repository](https://github.com/stanjng/project_2_client/)
 
 ## List of Technologies
 - Javascript
