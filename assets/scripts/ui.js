@@ -26,7 +26,6 @@ const onSignUpFailure = function () {
 // --------------------------------------- SIGN IN
 const onSignInSuccess = function (responseData) {
   store.user = responseData.user
-  console.log(store.user)
   // Stores key
   $('#sign-in').trigger('reset')
   $('.sign-in-btn').text('Sign in successful!')
@@ -125,7 +124,6 @@ const onViewAllSuccess = function (smoothieData) {
   $('.show-smoothies').append(smoothieHandlebar({
     smoothies: smoothieData.smoothies
   }))
-  console.log(smoothieData)
   $('.view-all-smoothies-btn').text('Updated!')
   setTimeout(() => {
     $('.view-all-smoothies-btn').text('View All Smoothies')
@@ -140,7 +138,6 @@ const onViewAllFailure = function () {
 }
 
 const onViewOneSuccess = function (smoothyData) {
-  console.log(smoothyData)
   $('.show-smoothies').html(``)
   $('.show-smoothies').append(smoothieHandlebar({
     smoothies: smoothyData
@@ -175,7 +172,6 @@ const onCreateFailure = function () {
 }
 
 const onUpdateSuccess = function (smoothyData) {
-  console.log(smoothyData)
   onViewOneSuccess(smoothyData)
   // onViewOneSuccess()
   $('#update-smoothy').trigger('reset')
